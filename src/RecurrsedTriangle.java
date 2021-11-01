@@ -2,14 +2,26 @@ import java.awt.*;
 import java.util.Random;
 
 public class RecurrsedTriangle {
-    RecurrsedTriangle(){
+    int x;
+    int y;
+    int len;
+    double theta;
+    Graphics g;
+    RecurrsedTriangle(Graphics g,int x,int y, int len,double theta){
+        this.g = g;
+        this.x = x;
+        this.y= y;
+        this.len = len;
+        this.theta = theta;
 
     }
+
     public void draw(Graphics g,int x, int y,int len,double theta,Boolean UpsideDown){
+
       Color pen = new Color((float)(Math.random()),
                 (float)(Math.random()),
                 (float)(Math.random()));
-        if(len< 5){
+        if(len< 25){
             return;
         }
 
@@ -79,5 +91,25 @@ public class RecurrsedTriangle {
 
         //System.out.println("Distance From Start Point to Top Point"+ Math.sqrt(Math.pow(Top.x-startPos.x,2)+Math.pow(Top.y-startPos.y,2)));
         //rotate direction 360/3 in radians and repeat
+    }
+    public void annimate(Graphics g,int i ){
+
+        //determine h
+        int factor = 100;
+
+        int h = (int)((Math.sqrt(3)/2) *(this.len+(factor*13)));
+        //Important to change if the amount of iterations changes
+        //System.out.println("h equals "+ h);
+        double dif = h/(30);
+        //System.out.println("Y equal to "+ this.y+((int)((dif*i))));
+        //change for y this.y+((factor*i)/((int)(Math.sqrt(factor))/4))
+        // x = this.x-((factor*i)/2)
+        double difx = ((this.len+(factor*i))/4);
+        System.out.println("This is the x end "+(this.x-difx));
+        //draw(g,this.x-(int)(difx),this.y+(int)((dif*i)),this.len+(factor*i),this.theta,false);
+        draw(g,this.x,this.y,this.len+(factor*i),this.theta,false);
+
+
+
     }
 }
