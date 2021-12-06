@@ -1,3 +1,4 @@
-#How to use
-For Sierpinski Triangle
-run the 
+# How to use
+## For Sierpinski Triangle
+run the file FractalGUITriangle
+
